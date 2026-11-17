@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Students Attendance Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="college-brand" aria-label="Sri Eshwar College logo">
+    <div class="brand-mark">SE</div>
+    <div class="brand-text">
+      <span>SRI ESHWAR</span>
+      <small>COLLEGE</small>
+    </div>
+  </div>
+
+  <main class="page-shell">
+    <section class="calculator-card" aria-labelledby="page-title">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> STUDENT TOOLS</div>
+      <h1 id="page-title">Students Attendance Calculator</h1>
+      <p class="intro">Enter the number of working days and days attended to calculate your attendance percentage.</p>
+
+      <form id="attendance-form" novalidate>
+        <div class="field-group">
+          <label for="student-name">Student name</label>
+          <input id="student-name" type="text" placeholder="e.g. Arun Kumar" required>
+        </div>
+
+        <div class="field-group">
+          <label for="department">Department</label>
+          <input id="department" type="text" placeholder="e.g. Computer Science" required>
+        </div>
+
+        <div class="field-group">
+          <label for="working-days">Total working days</label>
+          <input id="working-days" type="number" min="1" step="1" placeholder="e.g. 180" required>
+          <small>The total number of classes or school days held.</small>
+        </div>
+
+        <div class="field-group">
+          <label for="days-attended">Days attended</label>
+          <input id="days-attended" type="number" min="0" step="1" placeholder="e.g. 162" required>
+          <small>Must be less than or equal to total working days.</small>
+        </div>
+
+        <button type="submit">Calculate attendance <span aria-hidden="true">→</span></button>
+        <button type="button" id="feedback-button" class="feedback-button">Give Feedback</button>
+      </form>
+
+      <div id="feedback-panel" class="feedback-panel" hidden>
+        <label for="feedback-text">Your feedback</label>
+        <textarea id="feedback-text" rows="3" placeholder="Tell us about your experience..."></textarea>
+        <button type="button" id="send-feedback" class="send-feedback">Send Feedback</button>
+      </div>
+
+      <p id="form-message" class="message" role="alert" aria-live="polite"></p>
+
+      <table class="student-table" aria-label="Student details table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="display-name">-</td>
+            <td id="display-department">-</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section id="result" class="result" aria-live="polite" hidden>
+        <div class="result-topline">
+          <div>
+            <p class="result-label">YOUR ATTENDANCE</p>
+            <p id="percentage" class="percentage">0%</p>
+          </div>
+          <div id="status-badge" class="status-badge">—</div>
+        </div>
+
+        <div class="progress-track" role="progressbar" aria-label="Attendance percentage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+
+        <div class="result-details">
+          <div><span>Days attended</span><strong id="attended-summary">0</strong></div>
+          <div><span>Days missed</span><strong id="missed-summary">0</strong></div>
+          <div><span>Working days</span><strong id="working-summary">0</strong></div>
+        </div>
+        <p id="result-note" class="result-note"></p>
+      </section>
+
+      <blockquote class="motivation-quote">
+        “Success is built one attended day at a time.”
+      </blockquote>
+
+      <p class="footnote">Attendance rate = (days attended ÷ working days) × 100</p>
+    </section>
+  </main>
+</body>
+</html>
